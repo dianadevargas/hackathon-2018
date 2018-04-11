@@ -36,7 +36,7 @@ class App extends Component {
             <HeaderV2 isHomepage={true} />
               <Router>
                 <div>
-                    <Route path="/" component={Home} />
+                    <Route exact path="/" component={Home} />
                     <Route path="/success" component={Success} />
                     <Route path="/message" component={Message} />
                     <Route path="/feedback" component={Feedback} />
