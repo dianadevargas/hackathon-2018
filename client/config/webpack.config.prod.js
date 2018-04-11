@@ -34,6 +34,10 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
 
+const allButHui = function(modulePath) {
+    return /node_modules/.test(modulePath) && !/node_modules\/hui/.test(modulePath);
+};
+
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
 
@@ -147,6 +151,7 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
+            exclude: allButHui,
             loader: require.resolve('babel-loader'),
             options: {
 
