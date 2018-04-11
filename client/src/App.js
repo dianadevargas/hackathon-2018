@@ -7,6 +7,7 @@ import { Home } from './containers/home';
 import { Success } from './containers/success';
 import { Message } from './containers/message';
 import { Feedback } from './containers/feedback';
+import { Competition } from './containers/competition';
 
 import { normalize } from 'polished';
 
@@ -39,6 +40,7 @@ class App extends Component {
                     <Route path="/success" component={Success} />
                     <Route path="/message" component={Message} />
                     <Route path="/feedback" component={Feedback} />
+                    <Route path="/competition" component={Competition} />
                 </div>
               </Router>
             <Footer />
