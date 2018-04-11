@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import { Theme, HeaderV2, Footer } from 'hui/dist/styled';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Home } from './containers/home';
+import { Success } from './containers/success';
+import { Message } from './containers/message';
+import { Feedback } from './containers/feedback';
 
 import { normalize } from 'polished';
 
@@ -22,31 +27,22 @@ injectGlobal`
   }
 `;
 
-const PageContainer = styled.div`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  min-width: 320px;
-`;
-
-const Main = styled.main`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-`;
-
 class App extends Component {
-
-
   render() {
     return (
       <ThemeProvider theme={Theme}>
-          <PageContainer>
+          <div>
             <HeaderV2 isHomepage={true} />
-              <Main>
-              </Main>
+              <Router>
+                <div>
+                    <Route path="/" component={Home} />
+                    <Route path="/success" component={Success} />
+                    <Route path="/message" component={Message} />
+                    <Route path="/feedback" component={Feedback} />
+                </div>
+              </Router>
             <Footer />
-          </PageContainer>
+          </div>
       </ThemeProvider>
     );
   }
