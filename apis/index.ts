@@ -9,7 +9,8 @@ export async function signedUrl(event, context, callback) {
     'iotdevicegateway',
     crypto.createHash('sha256').update('', 'utf8').digest('hex'),
     {
-
+      'key': 'AKIAJXHUBV2PJAKVPMWQ',
+      'secret': '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',
       'protocol': 'wss',
       'region': 'ap-southeast-2',
     }
