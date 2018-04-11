@@ -16,7 +16,6 @@ function urlB64ToUint8Array(base64String) {
 export default function registerNotifications() {
     if ('serviceWorker' in navigator && 'PushManager' in window) {
         const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-        console.log(swUrl);
 
         navigator.serviceWorker.register(swUrl)
             .then(function(swReg) {
