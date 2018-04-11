@@ -66,6 +66,27 @@ functions:
           path: signedUrl
           method: get
           cors: true
+  iot-send:
+    handler: iot-send.pushMessage
+    Description: >-
+      Gets messages from ioT and send it to the subscriber.
+    MemorySize: 512
+    Timeout: 10
+    Role: 'arn:aws:iam::784691206030:role/service-role/SimpleMicroservice'
+    events:
+      - iot:
+          sql: 'SELECT deviceID, incomingText FROM ''iot/incoming/hip'''    
+  test-send:
+    handler: test-send.pushMessage
+    Description: >-
+      Gets messages from http and send it to the subscriber.
+    MemorySize: 512
+    Timeout: 10
+    Role: 'arn:aws:iam::784691206030:role/service-role/SimpleMicroservice'
+    events:
+      - http:
+          path: iot-http
+          method: post   
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
