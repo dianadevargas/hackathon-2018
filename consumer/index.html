@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - base64String.length % 4) % 4);
+            const base64 = (base64String + padding)
+                .replace(/\-/g, '+')
+                .replace(/_/g, '/');
+
+            const rawData = window.atob(base64);
+            const outputArray = new Uint8Array(rawData.length);
+
+            for (let i = 0; i < rawData.length; ++i) {
+                outputArray[i] = rawData.charCodeAt(i);
+            }
+            return outputArray;
+        }
+
+        function registerServiceWorker() {
+            navigator.serviceWorker
+                .register('./service-worker.js')
+                .then(registration => {
+                    console.log(
+                        "ServiceWorker registered with scope:",
+                        registration.scope
+                    );
+                })
+                .catch(e => console.error("ServiceWorker failed:", e));
+        }
+
+        function subscribeToPushNotifications() {
+            navigator.serviceWorker.ready
+                .then((registration) => {
+                    return registration.pushManager
+                        .subscribe({
+                            userVisibleOnly: true,
+                            applicationServerKey: urlBase64ToUint8Array('BCs-9OzcDBy1KFQ1WpXe_rvjxqWyAVm_EiE9noO2dSmiglXNjeAAaxoHLlDQkyZ6sdIrsGlFWPUt-O67jWrSGqw')
+                        });
+                })
+                .then(pushSubscription => {
+                    console.log(
+                        "Received PushSubscription:",
+                        JSON.stringify(pushSubscription)
+                    );
+                });
+        }
+
+        if (navigator && navigator.serviceWorker) {
+            registerServiceWorker();
+            subscribeToPushNotifications();
+        }
+
+        Notification.requestPermission();
+    </script>
+</head>
+<body>
+    Test hackaton 2018
+</body>
+</html>

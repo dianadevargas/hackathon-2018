@@ -1,0 +1,42 @@
+Arguments: 
+  /Users/ryanchung/.nvm/versions/node/v8.7.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js install web-push
+
+PATH: 
+  /Users/ryanchung/.nvm/versions/node/v8.7.0/bin:/Users/ryanchung/.basher/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/ryanchung/Workspace/whaler/bin:/Library/PostgreSQL/10/bin/:/Users/ryanchung/go/bin/:/usr/local/mysql/bin/:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/PostgreSQL/10/bin/
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.7.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add web-push" instead.
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:21987:13)
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:109:13
+      at <anonymous>
